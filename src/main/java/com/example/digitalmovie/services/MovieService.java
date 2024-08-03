@@ -37,7 +37,7 @@ public class MovieService {
             movie.setPriceRent(movieDetails.getPriceRent());
             movie.setPriceBuy(movieDetails.getPriceBuy());
             movie.setFeatured(movieDetails.isFeatured());
-            movie.setType(movieDetails.getType()); // Update type
+            movie.setType(movieDetails.getType());
             return movieRepository.save(movie);
         }
         return null;
