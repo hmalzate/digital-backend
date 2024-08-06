@@ -31,6 +31,6 @@ public class AuthController {
         if (existingUser == null || !passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
             return ResponseEntity.badRequest().body("Invalid credentials");
         }
-        return ResponseEntity.ok("Login successful");
+        return ResponseEntity.ok(existingUser);
     }
 }

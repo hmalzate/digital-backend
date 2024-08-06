@@ -10,5 +10,5 @@ import java.util.List;
 public interface MovieRepository extends MongoRepository<Movie, Integer> {
     List<Movie> findByTitleContaining(String title);
     List<Movie> findByIsFeatured(boolean isFeatured);
-    List<Movie> findByIsFeaturedAndType(boolean isFeatured, String type); // Added method
+    List<Movie> findByIsFeaturedAndType(boolean isFeatured, String type);
 }
