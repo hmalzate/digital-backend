@@ -10,5 +10,8 @@ COPY . /app
 # Package the application
 RUN ./mvnw package
 
-# Run the application
-CMD ["java", "-jar", "target/digitalmovie-0.0.1-SNAPSHOT.jar"]
+# Expose the new port (e.g., 5002)
+EXPOSE 5002
+
+# Run the application on the new port
+CMD ["java", "-jar", "target/digitalmovie-0.0.1-SNAPSHOT.jar", "--server.port=5002"]
