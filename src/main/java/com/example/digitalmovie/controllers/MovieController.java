@@ -36,7 +36,7 @@ public class MovieController {
     public ResponseEntity<?> getMovieById(@PathVariable Integer id) {
         Movie movie = movieService.getMovieById(id);
         if (movie == null) {
-            return ResponseEntity.badRequest().body(new CustomizedResponse("Movie not found", null));
+            return ResponseEntity.status(404).body(new CustomizedResponse("Movie not found", null));
         }
         return ResponseEntity.ok(new CustomizedResponse("Movie found", movie));
     }
@@ -45,7 +45,7 @@ public class MovieController {
     public ResponseEntity<?> updateMovie(@PathVariable Integer id, @RequestBody Movie movieDetails) {
         Movie updatedMovie = movieService.updateMovie(id, movieDetails);
         if (updatedMovie == null) {
-            return ResponseEntity.badRequest().body(new CustomizedResponse("Movie not found", null));
+            return ResponseEntity.status(404).body(new CustomizedResponse("Movie not found", null));
         }
         return ResponseEntity.ok(new CustomizedResponse("Movie updated successfully", updatedMovie));
     }
