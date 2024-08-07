@@ -20,6 +20,10 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+    public List<Movie> getMoviesByType(String type) {
+        return movieRepository.findByType(type);
+    }
+
     public Movie getMovieById(Integer id) {
         return movieRepository.findById(id).orElse(null);
     }

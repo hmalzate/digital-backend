@@ -22,8 +22,13 @@ public class MovieController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllMovies() {
-        List<Movie> movies = movieService.getAllMovies();
+    public ResponseEntity<?> getAllMovies(@RequestParam(required = false) String type) {
+        List<Movie> movies;
+        if (type != null) {
+            movies = movieService.getMoviesByType(type);
+        } else {
+            movies = movieService.getAllMovies();
+        }
         return ResponseEntity.ok(new CustomizedResponse("List of movies", movies));
     }
 
