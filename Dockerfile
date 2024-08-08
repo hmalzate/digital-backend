@@ -10,7 +10,7 @@ COPY . /app
 # Package the application
 RUN ./mvnw package
 
-# Expose the new port (e.g., 5002)
+# Expose the new port
 EXPOSE 5002
 
 # Run the application on the new port
